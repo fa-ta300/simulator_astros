@@ -1,6 +1,7 @@
 este es mi segundo proyecto d javascrpts,pero es mucho mas serio que mi pirmero:
 como aun no eh apredido mucha matematica avazada tuve que investgar y aprender lo que necesite... creo que mas futuramente me servira en la escuela.
 [abre para entar al simulador](https://fa-ta300.github.io/simulator_astros/)
+### recomiendo abrir en pc
 ### Info sobre los astros:
 * **Círculos rojos:** Estrellas rojas.
 * **Sin aura:** Estrella normal.
