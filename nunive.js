@@ -1,7 +1,7 @@
 // VARIABLES INICIALES Y CONFIGURACIÓN DEL CANVAS
 window.addEventListener ('load',()=>{
     const canvas = document.getElementById('canvassimulador');
-    const limite_universo = 1500;
+    let limite_universo = 1500;
     const ctx = canvas.getContext('2d');
     let supernovas_total=0;
     let tipo_hover = '';
@@ -362,6 +362,7 @@ window.addEventListener ('load',()=>{
     }
 
     function animar() {
+        limite_universo+=0.05;
         //SISTEMA HOVER
         const mundoMouseX = (mouseX - canvas.width / 2) / camara.zoom + canvas.width / 2 - camara.x;
         const mundoMouseY = (mouseY - canvas.height / 2) / camara.zoom + canvas.height / 2 - camara.y;
@@ -387,6 +388,7 @@ window.addEventListener ('load',()=>{
         const n_agujeros = lista_estrellas.filter(a => a.tipo === 'agujero_negro').length;
         const azul = lista_estrellas.filter(a => a.tipo === 'astros' && a.color() === 'blue').length;
         const n_neutrones = lista_estrellas.filter(a => a.tipo === 'neutrones').length;
+        const npulsares= lista_estrellas.filter(a => a.tipo === 'pulsar').length;
         ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -476,11 +478,11 @@ window.addEventListener ('load',()=>{
                                 supernovas_total++;
                                 ganador.viva = false;
                                 particulas_colocar(ganador.x, ganador.y, 'white', 20);
-                            }else if(Math.random() <=0.02 && perdedor.masa <=6){//crear neutrones
+                            }else if(Math.random() <=0.015){//crear neutrones
                                 ganador.viva = false;
                                 particulas_colocar(ganador.x, ganador.y, 'white', 70);
                                 lista_estrellas.push(new estrella_neutrones(ganador.x, ganador.y, ganador.vx, ganador.vy, (ganador.masa + perdedor.masa)));
-                            }else if(Math.random() <=0.015 && perdedor.masa <=6){//crear pulsar
+                            }else if(Math.random() <=0.015 ){//crear pulsar
                                 ganador.viva = false;
                                 particulas_colocar(ganador.x, ganador.y, 'white', 70);
                                 lista_estrellas.push(new pulsar(ganador.x, ganador.y, ganador.vx, ganador.vy, (ganador.masa + perdedor.masa)));
@@ -584,7 +586,10 @@ window.addEventListener ('load',()=>{
                 tipo_hover = 'agujero negro';
             }else if (astroHover.tipo === 'neutrones'){
                 tipo_hover = 'estrella de neutrones';
+            }else if (astroHover.tipo === 'pulsar'){
+                tipo_hover = 'estrella pulsar';
             }
+
 
             const padding = 10;
             const ancho = 350;
@@ -635,7 +640,7 @@ window.addEventListener ('load',()=>{
             🔴 Rojas: ${rojas} | 🟡 Amarillas: ${amarillas}<br>
             ⚪ Blancas: ${blancas} | 🔵 Cian: ${cian}<br>
             azul: ${azul} | 🎆 Agujeros Negros: ${n_agujeros} <br>
-            neutrones: ${n_neutrones}<br>
+            neutrones: ${n_neutrones} | pulsares: ${npulsares}<br>
             
         `;
         
