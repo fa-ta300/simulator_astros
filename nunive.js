@@ -1,5 +1,6 @@
 // VARIABLES INICIALES Y CONFIGURACIÓN DEL CANVAS
-const canvas = document.getElementById('canvassimulador');
+window.addEventListener ('load',()=>{
+    const canvas = document.getElementById('canvassimulador');
 const limite_universo = 1500;
 const ctx = canvas.getContext('2d');
 let supernovas_total=0;
@@ -676,3 +677,4 @@ window.addEventListener('touchend', () => tocando = false);
 
 animar();
 //mucha matematica😫😪😪😪
+});
