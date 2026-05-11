@@ -23,19 +23,20 @@ window.addEventListener ('load',()=>{
         y: 0,
         zoom: 1
     }
-
+    
     const btnPausa = document.getElementById('pausa');
-
-    btnPausa.addEventListener('click', () => {
+    if(btnPausa){
+        btnPausa.addEventListener('click', () => {
         pausado = !pausado; 
         if (pausado) {
             btnPausa.innerText = "Reanudar";
-            btnPausa.style.backgroundColor = "#ff4444";
+            btnPausa.style.backgroundColor = "rgb(255, 68, 68)"; // Rojo
         } else {
             btnPausa.innerText = "Pausar";
-            btnPausa.style.backgroundColor = "#44ff44";
+            btnPausa.style.backgroundColor = "rgb(68, 255, 68)"; // Verde
         }
-    });
+    });}
+   
 
     // CLASE PRINCIPAL: ASTROS
     class astros {
