@@ -208,7 +208,7 @@ window.addEventListener ('load',()=>{
             if (distancia < this.radio*4){
                 otra.masa-=0.01;
                 this.masa+=0.01;
-                particulas_colocar(otra.x,otra.y,otra.color,1);
+                particulas_colocar(otra.x,otra.y,otra.color(),1);
                 if (this.masa>=1000){
                     
                         
@@ -476,11 +476,11 @@ window.addEventListener ('load',()=>{
                                 supernovas_total++;
                                 ganador.viva = false;
                                 particulas_colocar(ganador.x, ganador.y, 'white', 20);
-                            }else if(Math.random <=0.02 && perdedor.masa <=6){//crear neutrones
+                            }else if(Math.random() <=0.02 && perdedor.masa <=6){//crear neutrones
                                 ganador.viva = false;
                                 particulas_colocar(ganador.x, ganador.y, 'white', 70);
                                 lista_estrellas.push(new estrella_neutrones(ganador.x, ganador.y, ganador.vx, ganador.vy, (ganador.masa + perdedor.masa)));
-                            }else if(Math.random <=0.015 && perdedor.masa <=6){//crear pulsar
+                            }else if(Math.random() <=0.015 && perdedor.masa <=6){//crear pulsar
                                 ganador.viva = false;
                                 particulas_colocar(ganador.x, ganador.y, 'white', 70);
                                 lista_estrellas.push(new pulsar(ganador.x, ganador.y, ganador.vx, ganador.vy, (ganador.masa + perdedor.masa)));
