@@ -30,10 +30,10 @@ window.addEventListener ('load',()=>{
         pausado = !pausado; 
         if (pausado) {
             btnPausa.innerText = "Reanudar";
-            btnPausa.style.backgroundColor = "rgb(255, 68, 68)"; // Rojo
+            btnPausa.style.backgroundColor = "#ff4444";
         } else {
             btnPausa.innerText = "Pausar";
-            btnPausa.style.backgroundColor = "rgb(68, 255, 68)"; // Verde
+            btnPausa.style.backgroundColor = "#44ff44";
         }
     });
 
